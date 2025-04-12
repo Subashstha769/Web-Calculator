@@ -6,6 +6,9 @@ function Calculator() {
         display.value = "";
     }
 
+   
+     
+
     function appentToDisplay(input) {
         let display = document.querySelector("#display");
         display.value += input;
@@ -19,6 +22,12 @@ function Calculator() {
                 ? display.value.slice(1)
                 : `-${display.value}`;
         }
+    }
+
+    function back(){
+        let display = document.querySelector("#display");
+        display.value = display.value.slice(0, -1);
+        
     }
 
     function result() {
@@ -36,8 +45,9 @@ function Calculator() {
     return (
         <>
             <div className="calculator w-100 h-[100vh] p-2 bg-black text-white flex flex-col justify-start items-center gap-2 sm:w-[450px] sm:h-[650px] sm:rounded-[10px] ">
-                <section className="display  w-full h-[20%] flex justify-center items-center sm:h-[100px] ">
+                <section className="display  w-full h-[20%] flex justify-center items-center gap-1 sm:h-[100px] ">
                     <input type="text" placeholder="0" id="display" className="  outline-none w-full h-full bg-transparent text-white text-7xl text-right placeholder:text-7xl px-1" readOnly />
+                    <i class="fa-solid fa-delete-left text-3xl text-gray-400 cursor-pointer" onClick={back} ></i>
                 </section>
 
                 <section className="btns  w-full h-[78%] grid grid-cols-4 grid-rows-5 items-center gap-3 sm:h-[520px]" >
